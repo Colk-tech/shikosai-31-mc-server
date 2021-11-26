@@ -1,0 +1,88 @@
+version: "3"
+
+services:
+  architecture-server:
+    build:
+      context: .
+      dockerfile: ./docker/architecture/Dockerfile
+    container_name: "arch_server"
+    ports:
+      - 10065:25565
+      - 10075:25575
+    environment:
+      SERVER_NAME: SHIKOSAI_XXXI_ARCHITECTURE
+      ANNOUNCE_PLAYER_ACHIEVEMENTS: false
+      MEMORY: 2G
+      # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
+      #  RCON_PASSWORD: minecraft
+    volumes:
+      - architecture-server-data:/data
+    tty: true
+    stdin_open: true
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+
+  progress-server:
+    build:
+      context: .
+      dockerfile: ./docker/progress/Dockerfile
+    container_name: "prgs_server"
+    ports:
+      - 20065:25565
+      - 20075:25575
+    environment:
+      SERVER_NAME: SHIKOSAI_XXXI_PROGRESS
+      ANNOUNCE_PLAYER_ACHIEVEMENTS:	true
+      MEMORY: 2G
+      # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
+      #  RCON_PASSWORD: minecraft
+    volumes:
+      - progress-server-data:/data
+    tty: true
+    stdin_open: true
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+
+# architecture-backup:
+#    image: itzg/mc-backup
+#    container_name: "arch_backup"
+#    depends_on:
+#      - architecture-server
+#    environment:
+#      BACKUP_NAME: arch
+#      INITIAL_DELAY: 3m
+#      BACKUP_INTERVAL: 3m
+#      # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
+#      # RCON_PASSWORD: minecraft
+#    volumes:
+#      - architecture-server-data:/data:ro
+#      - ./arch-server-backups:/backups
+#    network_mode: "service:architecture-server"
+
+#  progress-backup:
+#    image: itzg/mc-backup
+#    container_name: "prgs_backup"
+#    depends_on:
+#      - progress-server
+#    environment:
+#      BACKUP_NAME: prgs
+#      INITIAL_DELAY: 3m
+#      BACKUP_INTERVAL: 3m
+#      # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
+#      # RCON_PASSWORD: minecraft
+#    volumes:
+#      - progress-server-data:/data:ro
+#      - ./progress-server-backups:/backups
+#    network_mode: "service:progress-server"
+
+volumes:
+  architecture-server-data:
+    driver: local
+  progress-server-data:
+    driver: local
