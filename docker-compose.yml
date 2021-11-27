@@ -11,9 +11,12 @@ services:
       - 10075:25575
     environment:
       SERVER_NAME: SHIKOSAI_XXXI_ARCHITECTURE
+      ICON: https://raw.githubusercontent.com/Colk-tech/shikosai-31-mc-server/main/assets/images/shikosai-31-mc-logo-x64.png
       MOTD: "Shikosai XXXI progress server"
       MAX_PLAYERS: 100
+      DIFFICULTY: peaceful
       MODE: creative
+      OPS: __def__,htrn_77,Colk_
       MEMORY: 116G
       # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
       #  RCON_PASSWORD: minecraft
@@ -38,9 +41,12 @@ services:
       - 20075:25575
     environment:
       SERVER_NAME: SHIKOSAI_XXXI_PROGRESS
+      ICON: https://raw.githubusercontent.com/Colk-tech/shikosai-31-mc-server/main/assets/images/shikosai-31-mc-logo-x64.png
       MOTD: "Shikosai XXXI progress server"
       MAX_PLAYERS: 100
+      DIFFICULTY: normal
       MODE: survival
+      OPS: __def__,htrn_77,Colk_
       MEMORY: 116G
       # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
       #  RCON_PASSWORD: minecraft
