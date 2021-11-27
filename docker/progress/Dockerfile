@@ -24,4 +24,5 @@ RUN apt-get update \
 
 COPY ./init_data/progress/ /data
 
-# MOD や Plugin などを追加する場合は、wget を用いて /plugins において下さい
+# Plugin を追加する場合は、README の方法に従って下さい。
+# wget は最終手段として用いて下さい。

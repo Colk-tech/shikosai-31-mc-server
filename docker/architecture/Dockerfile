@@ -23,5 +23,3 @@ RUN apt-get update \
     # && rm -rf /var/lib/apt/lists/*
 
 COPY ./init_data/architecture/ /data
-
-# MOD や Plugin などを追加する場合は、wget を用いて /plugins において下さい
