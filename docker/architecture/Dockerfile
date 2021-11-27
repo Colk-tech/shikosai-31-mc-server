@@ -8,7 +8,7 @@ ENV LC_ALL=en_US.UTF-8 \
 
 ENV EULA=TRUE \
     VERSION=1.17.1 \
-    TYPE=SPIGOT \
+    TYPE=PAPER \
     ENABLE_QUERY=true \
     ENABLE_STATUS=true
 
