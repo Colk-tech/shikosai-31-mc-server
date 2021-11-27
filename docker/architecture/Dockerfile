@@ -8,7 +8,7 @@ ENV LC_ALL=en_US.UTF-8 \
 
 ENV EULA=TRUE \
     VERSION=1.17.1 \
-    TYPE=SPIGOT \
+    TYPE=PAPER \
     ENABLE_QUERY=true \
     ENABLE_STATUS=true
 
@@ -23,5 +23,3 @@ RUN apt-get update \
     # && rm -rf /var/lib/apt/lists/*
 
 COPY ./init_data/architecture/ /data
-
-# MOD や Plugin などを追加する場合は、wget を用いて /plugins において下さい

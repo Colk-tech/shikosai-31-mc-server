@@ -37,7 +37,11 @@ A constructing files for Minecraft Servers of 31th Shikosai at NITIC
 もちろんディレクトリを用いた再帰的なファイル配置も可能です。
 
 ## プラグインを追加したい
-対応する `Dockerfile` を編集して、`wget` コマンドを用いて、`data/plugins/` に対象の `jar` ファイルを入れて下さい。
+対応する `docker-compose.yml` の環境変数を編集して、 Spigot の公式リポジトリから自動でプラグインを導入することができます。
+
+詳しくは、[Auto-downloading SpigotMC/Bukkit/PaperMC plugins](https://github.com/itzg/docker-minecraft-server/blob/master/README.md#auto-downloading-spigotmcbukkitpapermc-plugins) を参照して下さい。
+
+なお、Spigot の公式リポジトリにないプラグインを追加する際には、対応する `Dockerfile` を編集して、`wget` コマンドを用いて、`data/plugins/` に対象の `jar` ファイルを入れて下さい。
 
 ## サーバーコマンドを発行したい。
 `RCON` を用いて遠隔でサーバーを制御することができます。
