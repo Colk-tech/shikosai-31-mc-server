@@ -11,6 +11,9 @@ services:
       - 10075:25575
     environment:
       SERVER_NAME: SHIKOSAI_XXXI_ARCHITECTURE
+      MOTD: "Shikosai XXXI progress server"
+      MAX_PLAYERS: 100
+      MODE: creative
       MEMORY: 116G
       # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
       #  RCON_PASSWORD: minecraft
@@ -35,6 +38,9 @@ services:
       - 20075:25575
     environment:
       SERVER_NAME: SHIKOSAI_XXXI_PROGRESS
+      MOTD: "Shikosai XXXI progress server"
+      MAX_PLAYERS: 100
+      MODE: survival
       MEMORY: 116G
       # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
       #  RCON_PASSWORD: minecraft
