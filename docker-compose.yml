@@ -31,7 +31,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '28'
+          cpus: '7'
           memory: 120G
 
   progress-server:
@@ -61,7 +61,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '28'
+          cpus: '7'
           memory: 120G
 
   architecture-backup:
