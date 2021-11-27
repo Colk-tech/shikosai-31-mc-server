@@ -11,8 +11,7 @@ services:
       - 10075:25575
     environment:
       SERVER_NAME: SHIKOSAI_XXXI_ARCHITECTURE
-      ANNOUNCE_PLAYER_ACHIEVEMENTS: false
-      MEMORY: 2G
+      MEMORY: 116G
       # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
       #  RCON_PASSWORD: minecraft
     volumes:
@@ -23,7 +22,8 @@ services:
     deploy:
       resources:
         limits:
-          memory: 4G
+          cpus: '28'
+          memory: 120G
 
   progress-server:
     build:
@@ -35,8 +35,7 @@ services:
       - 20075:25575
     environment:
       SERVER_NAME: SHIKOSAI_XXXI_PROGRESS
-      ANNOUNCE_PLAYER_ACHIEVEMENTS:	true
-      MEMORY: 2G
+      MEMORY: 116G
       # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
       #  RCON_PASSWORD: minecraft
     volumes:
@@ -47,7 +46,8 @@ services:
     deploy:
       resources:
         limits:
-          memory: 4G
+          cpus: '28'
+          memory: 120G
 
 # architecture-backup:
 #    image: itzg/mc-backup
