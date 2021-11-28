@@ -12,10 +12,13 @@ services:
     environment:
       SERVER_NAME: SHIKOSAI_XXXI_ARCHITECTURE
       ICON: https://raw.githubusercontent.com/Colk-tech/shikosai-31-mc-server/main/assets/images/shikosai-31-mc-logo-x64.png
-      MOTD: "Shikosai XXXI progress server"
+      MOTD: "§l§6第31回茨香祭§r §lマイクラバトル§r §l§n§b建築部門§r へようこそ！"
       MAX_PLAYERS: 100
       DIFFICULTY: peaceful
       MODE: creative
+      LEVEL_TYPE: flat
+      ALLOW_NETHER: "false"
+      ALLOW_FLIGHT: "TRUE"
       OPS: __def__,htrn_77,Colk_
       MEMORY: 116G
       # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
@@ -42,7 +45,7 @@ services:
     environment:
       SERVER_NAME: SHIKOSAI_XXXI_PROGRESS
       ICON: https://raw.githubusercontent.com/Colk-tech/shikosai-31-mc-server/main/assets/images/shikosai-31-mc-logo-x64.png
-      MOTD: "Shikosai XXXI progress server"
+      MOTD: "§l§6第31回茨香祭§r §lマイクラバトル§r §l§n§a進捗部門§r へようこそ！"
       MAX_PLAYERS: 100
       DIFFICULTY: normal
       MODE: survival
