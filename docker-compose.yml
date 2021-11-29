@@ -21,6 +21,8 @@ services:
       ALLOW_FLIGHT: "TRUE"
       OPS: __def__,htrn_77,Colk_
       MEMORY: 116G
+      TYPE: SPIGOT
+      SPIGET_RESOURCES: 23799,70359,28140,1997
       # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
       #  RCON_PASSWORD: minecraft
     volumes:
@@ -51,6 +53,8 @@ services:
       MODE: survival
       OPS: __def__,htrn_77,Colk_
       MEMORY: 116G
+      TYPE: SPIGOT
+      SPIGET_RESOURCES: 23799,70359,28140,1997
       # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
       #  RCON_PASSWORD: minecraft
     volumes:
