@@ -25,7 +25,7 @@ services:
       SPIGET_RESOURCES: 23799,70359,28140,1997
       # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
       RCON_PASSWORD: ${RCON_PASSWORD}
-      PVP: false
+      PVP: "false"
       OP_PERMISSION_LEVEL: 2
     volumes:
       - architecture-server-data:/data
