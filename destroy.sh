@@ -14,6 +14,7 @@ if [ "${YN}" = "y" ]; then
 
     docker stop $(docker ps -q)
     docker rm $(docker ps -q -a)
+    docker volume rm $(docker volume ls -q)
     docker system prune -f
 
   else
