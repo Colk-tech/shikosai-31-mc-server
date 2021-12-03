@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+  architecture-server:
+    build:
+      context: .
+      dockerfile: ./docker/architecture/Dockerfile
+    container_name: "arch_server"
+    ports:
+      - 25565:25565
+      - 25575:25575
+    environment:
+      SERVER_NAME: SHIKOSAI_XXXI_ARCHITECTURE
+      ICON: https://raw.githubusercontent.com/Colk-tech/shikosai-31-mc-server/main/assets/images/shikosai-31-mc-logo-x64.png
+      MOTD: "§l§6第31回茨香祭§r §lマイクラバトル§r §l§n§b建築部門§r へようこそ！"
+      MAX_PLAYERS: 100
+      DIFFICULTY: peaceful
+      MODE: creative
+      LEVEL_TYPE: flat
+      ALLOW_NETHER: "false"
+      ALLOW_FLIGHT: "TRUE"
+      OPS: __def__,htrn_77,Colk_
+      MEMORY: 116G
+      TYPE: SPIGOT
+      SPIGET_RESOURCES: 23799,70359,28140,1997
+      # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
+      RCON_PASSWORD: ${RCON_PASSWORD}
+    volumes:
+      - architecture-server-data:/data
+    tty: true
+    stdin_open: true
+    restart: always
+    deploy:
+      resources:
+        limits:
+          cpus: '7'
+          memory: 120G
+
+  architecture-backup:
+     image: itzg/mc-backup
+     container_name: "arch_backup"
+     depends_on:
+       - architecture-server
+     environment:
+       BACKUP_NAME: arch
+       INITIAL_DELAY: 3m
+       BACKUP_INTERVAL: 3m
+       EXCLUDES: jar,cache
+       # 遠隔操作用のパスワード。本番環境の際には必ず任意の値に変更すること。
+       RCON_PASSWORD: ${RCON_PASSWORD}
+     volumes:
+       - architecture-server-data:/data:ro
+       - ./arch-server-backups:/backups
+     network_mode: "service:architecture-server"
+
+volumes:
+  architecture-server-data:
+    driver: local
